@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My question to you ❤️</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #ffafbd, #ffc3a0);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        
+        .card {
+            background-color: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+            padding: 40px;
+            max-width: 500px;
+            width: 100%;
+            text-align: center;
+            border: 3px solid #ff6b93;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .card::before {
+            content: "❤️";
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 24px;
+            opacity: 0.3;
+        }
+        
+        h1 {
+            color: #d32f75;
+            margin-bottom: 20px;
+            font-size: 2.2rem;
+        }
+        
+        .message {
+            font-size: 1.2rem;
+            line-height: 1.6;
+            color: #333;
+            margin-bottom: 30px;
+        }
+        
+        .question {
+            background-color: #ffebf0;
+            padding: 25px;
+            border-radius: 15px;
+            margin: 25px 0;
+            border: 2px dashed #ff6b93;
+        }
+        
+        .question-text {
+            font-size: 1.8rem;
+            color: #c2185b;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+        
+        .buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 30px;
+        }
+        
+        button {
+            padding: 15px 35px;
+            font-size: 1.2rem;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            min-width: 140px;
+        }
+        
+        #yesBtn {
+            background-color: #4CAF50;
+            color: white;
+        }
+        
+        #yesBtn:hover {
+            background-color: #388E3C;
+            transform: scale(1.05);
+        }
+        
+        #noBtn {
+            background-color: #f44336;
+            color: white;
+        }
+        
+        #noBtn:hover {
+            background-color: #d32f2f;
+        }
+        
+        .hidden {
+            display: none;
+        }
+        
+        #response {
+            margin-top: 30px;
+            padding: 20px;
+            background-color: #e8f5e9;
+            border-radius: 15px;
+            font-size: 1.5rem;
+            color: #1b5e20;
+            font-weight: bold;
+            animation: fadeIn 1s;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        .hearts {
+            margin-top: 20px;
+            font-size: 2rem;
+            letter-spacing: 10px;
+        }
+        
+        footer {
+            margin-top: 30px;
+            font-size: 0.9rem;
+            color: #777;
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h1>❤️ To you, on Valentine's Day ❤️</h1>
+        
+        <div class="message">
+            <p>Dearest...</p>
+            <p>Life's greatest adventure begins with one step. A step I want to take with you.</p>
+        </div>
+        
+        <div class="question">
+            <div class="question-text">Will you be my Valentine... forever?</div>
+        </div>
+        
+        <div class="buttons">
+            <button id="yesBtn">YES! ❤️</button>
+            <button id="noBtn">Maybe...</button>
+        </div>
+        
+        <div id="response" class="hidden">
+            <!-- Response will be shown here -->
+        </div>
+        
+        <div class="hearts hidden" id="heartsContainer">
+            ❤️❤️❤️
+        </div>
+        
+        <footer>
+            From someone who loves you more than words can describe
+        </footer>
+    </div>
+
+    <script>
+        document.getElementById('yesBtn').addEventListener('click', function() {
+            document.getElementById('response').innerHTML = "You've made me the happiest in the world! 🥂❤️<br>I love you forever!";
+            document.getElementById('response').classList.remove('hidden');
+            document.getElementById('heartsContainer').classList.remove('hidden');
+            document.querySelector('.buttons').classList.add('hidden');
+            
+            // Create hearts!
+            createHearts();
+        });
+        
+        document.getElementById('noBtn').addEventListener('click', function() {
+            // Make the button "hard" to click
+            const noBtn = document.getElementById('noBtn');
+            const card = document.querySelector('.card');
+            const cardWidth = card.offsetWidth;
+            const cardHeight = card.offsetHeight;
+            const btnWidth = noBtn.offsetWidth;
+            const btnHeight = noBtn.offsetHeight;
+            
+            // Move the button to a random place within the card
+            const maxX = cardWidth - btnWidth - 20;
+            const maxY = cardHeight - btnHeight - 20;
+            
+            const randomX = Math.floor(Math.random() * maxX);
+            const randomY = Math.floor(Math.random() * maxY);
+            
+            noBtn.style.position = 'absolute';
+            noBtn.style.left = randomX + 'px';
+            noBtn.style.top = randomY + 'px';
+            
+            // Change the text sometimes
+            const texts = ["Are you sure?", "Think again...", "Try YES instead!", "❤️?"];
+            noBtn.textContent = texts[Math.floor(Math.random() * texts.length)];
+        });
+        
+        function createHearts() {
+            const heartsContainer = document.getElementById('heartsContainer');
+            heartsContainer.innerHTML = '';
+            
+            for(let i = 0; i < 50; i++) {
+                const heart = document.createElement('div');
+                heart.innerHTML = '❤️';
+                heart.style.position = 'fixed';
+                heart.style.left = Math.random() * 100 + 'vw';
+                heart.style.top = '-50px';
+                heart.style.fontSize = Math.random() * 30 + 20 + 'px';
+                heart.style.opacity = Math.random() * 0.5 + 0.5;
+                heart.style.zIndex = '9999';
+                heart.style.pointerEvents = 'none';
+                heart.style.animation = `fall ${Math.random() * 3 + 2}s linear forwards`;
+                
+                document.body.appendChild(heart);
+                
+                // Remove heart after animation
+                setTimeout(() => {
+                    heart.remove();
+                }, 5000);
+            }
+            
+            // Add CSS for fall animation
+            const style = document.createElement('style');
+            style.innerHTML = `
+                @keyframes fall {
+                    to {
+                        transform: translateY(100vh) rotate(360deg);
+                        opacity: 0;
+                    }
+                }
+            `;
+            document.head.appendChild(style);
+        }
+    </script>
+</body>
+</html>
