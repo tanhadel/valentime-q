@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Min fråga till dig ❤️</title>
+    <title>My question to you ❤️</title>
     <style>
         * {
             margin: 0;
@@ -143,21 +143,22 @@
 </head>
 <body>
     <div class="card">
-        <h1>❤️ Till dig, på Valentinsdagen ❤️</h1>
+        <h1>❤️ To you, on Valentine's Day ❤️</h1>
         
         <div class="message">
-            <p>Käraste...</p>
-            <p>Livets största äventyr börjar med ett steg. Ett steg jag helst vill ta tillsammans med dig.</p>
+            <p>Dearest...</p>
+            <p>Life's greatest adventure begins with one step. A step I want to take with you.</p>
         </div>
         
         <div class="question">
-            <div class="question-text">Vill du vara min Valentin... för alltid?</div>
-            <p>(Scanna QR-koden med hjärtat för att se den här frågan)</p>
+            <div class="question-text">Will you be my Valentine... forever?</div>
+            <img src="imge/qr-code.svg" alt="QR Code" style="width: 200px; height: 200px; margin: 20px auto; display: block;">
+            <p>(Scan the QR code with the heart to see this question)</p>
         </div>
         
         <div class="buttons">
-            <button id="yesBtn">JA! ❤️</button>
-            <button id="noBtn">Kanske...</button>
+            <button id="yesBtn">YES! ❤️</button>
+            <button id="noBtn">Maybe...</button>
         </div>
         
         <div id="response" class="hidden">
@@ -169,13 +170,13 @@
         </div>
         
         <footer>
-            Från någon som älskar dig mer än ord kan beskriva
+            From someone who loves you more than words can describe
         </footer>
     </div>
 
     <script>
         document.getElementById('yesBtn').addEventListener('click', function() {
-            document.getElementById('response').innerHTML = "Du har gjort mig till världens lyckligaste! 🥂❤️<br>Jag älskar dig för evigt!";
+            document.getElementById('response').innerHTML = "You've made me the happiest in the world! 🥂❤️<br>I love you forever!";
             document.getElementById('response').classList.remove('hidden');
             document.getElementById('heartsContainer').classList.remove('hidden');
             document.querySelector('.buttons').classList.add('hidden');
@@ -204,8 +205,8 @@
             noBtn.style.left = randomX + 'px';
             noBtn.style.top = randomY + 'px';
             
-            // Ändra texten ibland
-            const texts = ["Säker?", "Tänk om...", "Testa JA istället!", "❤️?"];
+            // Change the text sometimes
+            const texts = ["Are you sure?", "Think again...", "Try YES instead!", "❤️?"];
             noBtn.textContent = texts[Math.floor(Math.random() * texts.length)];
         });
         
