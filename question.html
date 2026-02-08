@@ -139,24 +139,39 @@
             font-size: 0.9rem;
             color: #777;
         }
+        
+        .card {
+            animation: slideIn 0.5s ease-out;
+        }
+        
+        @keyframes slideIn {
+            from {
+                transform: translateY(-50px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
     </style>
 </head>
 <body>
     <div class="card">
-        <h1>❤️ To you, on Valentine's Day ❤️</h1>
+        <h1>❤️ Hey You! ❤️</h1>
         
         <div class="message">
-            <p>Dearest...</p>
-            <p>Life's greatest adventure begins with one step. A step I want to take with you.</p>
+            <p>So... I've been thinking... 🤔</p>
+            <p>And there's something I really want to ask you! 💭</p>
         </div>
         
         <div class="question">
-            <div class="question-text">Will you be my Valentine... forever?</div>
+            <div class="question-text">Would you like to go on a date with me? 🌹✨</div>
         </div>
         
         <div class="buttons">
-            <button id="yesBtn">YES! ❤️</button>
-            <button id="noBtn">Maybe...</button>
+            <button id="yesBtn">YES! 😍</button>
+            <button id="noBtn">Hmm... 🤔</button>
         </div>
         
         <div id="response" class="hidden">
@@ -168,13 +183,13 @@
         </div>
         
         <footer>
-            From someone who loves you more than words can describe
+            From someone who really wants to take you out 💝
         </footer>
     </div>
 
     <script>
         document.getElementById('yesBtn').addEventListener('click', function() {
-            document.getElementById('response').innerHTML = "You've made me the happiest in the world! 🥂❤️<br>I love you forever!";
+            document.getElementById('response').innerHTML = "Yay! 🎉❤️<br>You just made my day! Can't wait! 😊";
             document.getElementById('response').classList.remove('hidden');
             document.getElementById('heartsContainer').classList.remove('hidden');
             document.querySelector('.buttons').classList.add('hidden');
@@ -204,7 +219,7 @@
             noBtn.style.top = randomY + 'px';
             
             // Change the text sometimes
-            const texts = ["Are you sure?", "Think again...", "Try YES instead!", "❤️?"];
+            const texts = ["Wait! 🥺", "Think again! 😊", "Try YES! 💕", "Maybe YES? 🤗", "Please? 🌟", "Give me a chance! ❤️", "You sure? 🤷", "Really? 😢"];
             noBtn.textContent = texts[Math.floor(Math.random() * texts.length)];
         });
         
@@ -244,6 +259,7 @@
             `;
             document.head.appendChild(style);
         }
+        
     </script>
 </body>
 </html>
