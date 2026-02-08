@@ -49,18 +49,22 @@
             font-size: 2rem;
         }
         
-        .qr-container {
-            background-color: #fff;
-            padding: 30px;
-            border-radius: 15px;
+        .link-button {
             display: inline-block;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            background: linear-gradient(135deg, #ff6b93, #d32f75);
+            color: white;
+            padding: 20px 50px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-size: 1.3rem;
+            font-weight: bold;
+            box-shadow: 0 10px 25px rgba(211, 47, 117, 0.3);
+            transition: all 0.3s ease;
         }
         
-        .qr-code {
-            width: 300px;
-            height: 300px;
-            display: block;
+        .link-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(211, 47, 117, 0.4);
         }
         
         .message {
@@ -86,12 +90,12 @@
     <div class="card">
         <h1>❤️ I have a question for you... ❤️</h1>
         
-        <div class="qr-container">
-            <img src="imge/web.svg" alt="QR Code" class="qr-code">
-        </div>
+        <a href="question.html" class="link-button">
+            Click here to see my question 💝
+        </a>
         
         <div class="message">
-            <p><strong>Scan the QR code to see my question</strong></p>
+            <p><strong>Click the button to see what I want to ask you</strong></p>
         </div>
         
         <div class="emoji">💝</div>
